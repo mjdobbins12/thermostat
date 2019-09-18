@@ -23,4 +23,9 @@ describe('Thermostat', function() {
     for(i = 1; i <= 10; i++) { thermostat.decreaseTemp() }
     expect(function() {thermostat.decreaseTemp()}).toThrow('MINIMUM TEMP REACHED')
   });
+
+  it('on power saving mode, the max temp is 25 C', function() {
+    for(i = 1; i <= 5; i++) { thermostat.increaseTemp() }
+    expect(function() {thermostat.increaseTemp()}).toThrow('MAXIMUM TEMP REACHED')
+  });
 });
