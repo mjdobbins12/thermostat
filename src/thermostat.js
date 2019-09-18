@@ -22,3 +22,7 @@ Thermostat.prototype.powerSaver = function() {
     this.maxTemp = 25;
   }
 };
+
+Thermostat.prototype.resetTemp = function() {
+  this.temperature = 20;
+};

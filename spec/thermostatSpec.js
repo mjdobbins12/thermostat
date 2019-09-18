@@ -45,8 +45,14 @@ describe('Thermostat', function() {
   });
 
   it('when power saving mode is turned off, the max temp is 32 C', function() {
-    thermostat.powerSaver();
+    thermostat.powerSaver()
     for(i = 1; i <= 12; i++) { thermostat.increaseTemp() }
     expect(function() {thermostat.increaseTemp()}).toThrow('MAXIMUM TEMP REACHED')
+  });
+
+  it('resets the temperature to 20 with a reset function', function() {
+    thermostat.increaseTemp()
+    thermostat.resetTemp()
+    expect(thermostat.temperature).toEqual(20);
   });
 });
