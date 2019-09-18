@@ -18,4 +18,9 @@ describe('Thermostat', function() {
     thermostat.decreaseTemp()
     expect(thermostat.temperature).toEqual(19);
   });
+
+  it('has a minimum of 10 degrees C', function() {
+    for(i = 1; i <= 10; i++) { thermostat.decreaseTemp() }
+    expect(function() {thermostat.decreaseTemp()}).toThrow('MINIMUM TEMP REACHED')
+  });
 });
