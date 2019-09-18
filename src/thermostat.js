@@ -1,10 +1,11 @@
 function Thermostat(celcius = 20) {
   this.temperature = celcius
   this.powerSave = true
+  this.maxTemp = 25
 };
 
 Thermostat.prototype.increaseTemp = function() {
-  if (this.temperature >= 25) throw 'MAXIMUM TEMP REACHED';
+  if (this.temperature >= this.maxTemp) throw 'MAXIMUM TEMP REACHED';
   this.temperature++;
 };
 
@@ -15,4 +16,9 @@ Thermostat.prototype.decreaseTemp = function() {
 
 Thermostat.prototype.powerSaver = function() {
   this.powerSave = !this.powerSave
+  if (this.powerSave === false) {
+    this.maxTemp = 32;
+  } else {
+    this.maxTemp = 25;
+  }
 };
