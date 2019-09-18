@@ -6,6 +6,11 @@ describe('Thermostat', function() {
   });
 
   it('has a default setting of 20 degrees C', function() {
-    expect(thermostat.celcius).toEqual(20);
+    expect(thermostat.temperature).toEqual(20);
+  });
+
+  it('has an up button that can raise the temperature', function() {
+    thermostat.increaseTemp()
+    expect(thermostat.temperature).toEqual(21);
   });
 });

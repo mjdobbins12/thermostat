@@ -1,3 +1,7 @@
 function Thermostat(celcius = 20) {
-  this.celcius = celcius
+  this.temperature = celcius
+};
+
+Thermostat.prototype.increaseTemp = function() {
+  this.temperature++;
 };
