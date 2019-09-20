@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
   <style>
     table, th, td {
       border: 1px solid black;
@@ -10,10 +11,53 @@
       padding: 5px;
       text-align: left;
     }
+    .low {
+      color: green;
+    }
+    .medium {
+      color: black;
+    }
+    .high {
+      color: red;
+    }
   </style>
 </head>
 <body>
   <script src="./src/thermostat.js"></script>
+
+  <script>
+  $(document).ready(function() {
+    var thermostat = new Thermostat();
+    updateTemperature();
+    $("#powerSaveButton").text(thermostat._displayMode())
+
+
+    $("#upButton").click(function() {
+      thermostat.increaseTemp();
+      updateTemperature();
+    })
+
+    $("#downButton").click(function() {
+      thermostat.decreaseTemp();
+      updateTemperature();
+    })
+
+    $("#resetButton").click(function() {
+      thermostat.resetTemp();
+      updateTemperature();
+    })
+
+    $("#powerSaveButton").click(function() {
+      thermostat.powerSaver();
+      $("#powerSaveButton").text(thermostat._displayMode());
+    })
+
+    function updateTemperature() {
+      $("#temp").text(thermostat.temperature);
+      $("#temp").attr("class", thermostat.energyUsage());
+    };
+  });
+  </script>
 
   <table align='centre'>
     <tr>
