@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 5px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <script src="./src/thermostat.js"></script>
+
+  <table align='centre'>
+    <tr>
+      <th rowspan="3" id='temp'>Temperature:</th>
+      <td><button id='upButton'>Up</button></td>
+      <td><button id='resetButton'>Reset</button></td>
+    </tr>
+    <tr>
+      <td><button id='downButton'>Down</button></td>
+      <td><button id='powerSaveButton'>Power Save</button></td>
+    </tr>
+  </table>
+
+</body>
+</html>
