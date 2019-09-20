@@ -46,7 +46,9 @@ describe('Thermostat', function() {
 
   it('when power saving mode is turned off, the max temp is 32 C', function() {
     thermostat.powerSaver()
-    for(i = 1; i <= 12; i++) { thermostat.increaseTemp() }
+    console.log(thermostat.maxTemp)
+    for(i = 1; i <= 12; i++) { thermostat.increaseTemp(); 
+      console.log(thermostat.temperature) }
     expect(function() {thermostat.increaseTemp()}).toThrow('MAXIMUM TEMP REACHED')
   });
 
@@ -54,5 +56,13 @@ describe('Thermostat', function() {
     thermostat.increaseTemp()
     thermostat.resetTemp()
     expect(thermostat.temperature).toEqual(20);
+  });
+
+  it('indicates the current level of energy usage', function() {
+    expect(thermostat.energyUsage()).toEqual('Medium');
+    for(i = 1; i < 4; i++) { thermostat.decreaseTemp(); };
+    expect(thermostat.energyUsage()).toEqual('Low')
+    for(i = 1; i < 9; i++) { thermostat.increaseTemp(); };
+    expect(thermostat.energyUsage()).toEqual('High')
   });
 });

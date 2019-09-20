@@ -16,13 +16,16 @@ Thermostat.prototype.decreaseTemp = function() {
 
 Thermostat.prototype.powerSaver = function() {
   this.powerSave = !this.powerSave
-  if (this.powerSave === false) {
-    this.maxTemp = 32;
-  } else {
-    this.maxTemp = 25;
-  }
+  if (this.powerSave === false) {this.maxTemp = 32;}
+  else {this.maxTemp = 25;}
 };
 
 Thermostat.prototype.resetTemp = function() {
   this.temperature = 20;
 };
+
+Thermostat.prototype.energyUsage = function() {
+  if (this.temperature < 18) {return 'Low'}
+  if (this.temperature >= 25) {return 'High'}
+  return 'Medium';
+}
