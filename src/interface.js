@@ -1,9 +1,7 @@
-<script src="./src/thermostat.js"></script>
-
-<script>
 $(document).ready(function() {
   var thermostat = new Thermostat();
   updateTemperature();
+  // $("#currentTemp").text(Current Temerature )
   $("#powerSaveButton").text(thermostat._displayMode())
 
 
@@ -32,4 +30,3 @@ $(document).ready(function() {
     $("#temp").attr("class", thermostat.energyUsage());
   };
 });
-</script>

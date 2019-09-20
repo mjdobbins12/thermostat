@@ -24,7 +24,8 @@
 </head>
 <body>
   <script src="./src/thermostat.js"></script>
-
+  <script src="./src/interface.js"></script>
+<!--
   <script>
   $(document).ready(function() {
     var thermostat = new Thermostat();
@@ -57,11 +58,14 @@
       $("#temp").attr("class", thermostat.energyUsage());
     };
   });
-  </script>
+  </script> -->
 
   <table align='centre'>
     <tr>
-      <th rowspan="3" id='temp'>Temperature:</th>
+      <th colspan="3" id="currentTemp">Current Temperature</th>
+    </tr>
+    <tr>
+      <th rowspan="3" id='temp'>Temperature</th>
       <td><button id='upButton'>Up</button></td>
       <td><button id='resetButton'>Reset</button></td>
     </tr>
